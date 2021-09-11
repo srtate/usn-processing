@@ -35,6 +35,6 @@ done
 
 for c in "${!cvepkgs[@]}" ; do
     plist=`echo -n ${cvepkgs[$c]} | tr ',' '\n' | sort -u | tr '\n' ','`
-    echo -e "${c}\t${plist:0:-1}"
+    echo -e "${c}\t${plist%,}"
 done | sort -u >cve-dist-prelim.csv
 

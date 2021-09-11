@@ -50,6 +50,13 @@ program for further processing.
    info from the USNs. Restricts the list at a high level to the
    proper Ubuntu release, but individual CVEs might still not be
    relevant for this distribution -- that's why this is "prelim."
+   After this finishes running, you'll need to look for lines with
+   a CVE identifier and no package. These are almost certainly
+   kernel notices that were not recognized as such by the 01 extract
+   script. Find the corresponding message in extract and verify this,
+   and then move the messages to the "kernel" subdirectory if
+   appropriate. Then re-run "`./03-get-cves-prelim.ssh`" until
+   you get a clean result - one or more packages for each CVE.
 
 8. Get the Ubuntu CVE Tracker information using
    "`git clone https://git.launchpad.net/ubuntu-cve-tracker`"
